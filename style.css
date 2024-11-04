@@ -1,0 +1,30 @@
+:root {
+  --backgroundColor: #f9f9e1;
+  --primaryColor: #a882d7;
+  --accentColor: #fff5c5;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: 1px solid red;
+  text-decoration: none;
+  font-family: "Comic Sans MS", "Comic Sans";
+}
+
+.bold {
+  font-weight: bold;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  padding: 50px 160px 0px 160px;
+}
+
+.main-container {
+}
+
+.header-element {
+  color: var(--primaryColor);
+}
