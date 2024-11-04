@@ -2,6 +2,9 @@
   --backgroundColor: #f9f9e1;
   --primaryColor: #a882d7;
   --accentColor: #fff5c5;
+  --cardColor: #dceccf;
+  --redColor: #f13b3b;
+  --greenColor: #68b637;
 }
 
 * {
@@ -19,12 +22,110 @@
 
 body {
   background-color: var(--backgroundColor);
-  padding: 50px 160px 0px 160px;
-}
-
-.main-container {
+  padding: 30px 160px 0px 160px;
 }
 
 .header-element {
   color: var(--primaryColor);
+  display: grid;
+  grid-template-columns: 0.55fr 0.45fr;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.nav-element {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.add-book {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  width: 180px;
+  height: 66px;
+  font-size: 1.5rem;
+  background-color: var(--accentColor);
+  color: #fec9dd;
+  -webkit-text-stroke: 1px black;
+  font-weight: 900;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.253);
+}
+
+.content-grid {
+  display: grid;
+  margin-top: 80px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.content-card {
+  background-color: var(--cardColor);
+  width: 360px;
+  height: 315px;
+  border-radius: 20px;
+  box-shadow: 0px 1px 4px 1px #9a9a87;
+  padding: 20px 30px;
+  font-size: 1.25rem;
+  display: grid;
+}
+
+.main-card-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.content-title {
+  color: var(--primaryColor);
+}
+
+.content-option {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.modify {
+  color: var(--greenColor);
+  cursor: pointer;
+}
+
+.remove {
+  color: var(--redColor);
+  cursor: pointer;
+}
+
+.finished {
+  color: var(--redColor);
+  -webkit-text-stroke: 1px black;
+  cursor: pointer;
+}
+
+.pending {
+  color: var(--redColor);
+  -webkit-text-stroke: 1px black;
+  cursor: pointer;
+}
+
+.book-page-read-amount {
+  display: flex;
+  align-items: center;
+}
+
+.decrease {
+  fill: var(--redColor);
+  margin: 0px 10px 0px 30px;
+  cursor: pointer;
+}
+
+.increase {
+  fill: var(--greenColor);
+  cursor: pointer;
 }

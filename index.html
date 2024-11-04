@@ -9,31 +9,41 @@
   <body>
     <div class="main-container">
       <section class="header-element">
-        <a href="./index.html" class="header-element bold">PERSONAL LIBRARY</a>
-        <a href="./index.html" class="header-element bold home">HOME</a>
-        <a href="./index.html" class="header-element bold git">GITHUB</a>
-        <a href="./index.html" class="header-element bold contact">CONTACT</a>
-        <button class="add-book">ADD BOOK</button>
+        <a href="./index.html" class="header-element bold title"
+          >PERSONAL LIBRARY</a
+        >
+        <div class="nav">
+          <div class="nav-element">
+            <a href="./index.html" class="header-element bold home">HOME</a>
+            <a href="./index.html" class="header-element bold git">GITHUB</a>
+            <a href="./index.html" class="header-element bold contact"
+              >CONTACT</a
+            >
+          </div>
+          <button class="add-book">ADD BOOK</button>
+        </div>
       </section>
       <main class="content">
         <div class="content-grid">
           <div class="content-card">
             <div class="main-card-content">
-              <div class="content-title book-title">Title</div>
-              <div class="content-value book-title-name">Harry</div>
-              <div class="content-title book-author">Author</div>
-              <div class="content-value book-author-name">Potter</div>
-              <div class="content-title book-total-page">Total Page</div>
-              <div class="content-value book-total-page-amount">100</div>
-              <div class="content-title book-page-read">Page Read</div>
-              <div class="content-value book-page-read-amount">90</div>
-              <div class="content-title book-status">Status</div>
-              <div class="content-value book-status-name">Pending</div>
+              <div class="content-title book-title bold">Title:</div>
+              <div class="content-value book-title-name bold">Harry</div>
+              <div class="content-title book-author bold">Author:</div>
+              <div class="content-value book-author-name bold">Potter</div>
+              <div class="content-title book-total-page bold">Total Page:</div>
+              <div class="content-value book-total-page-amount bold">100</div>
+              <div class="content-title book-page-read bold">Page Read:</div>
+              <div class="content-value book-page-read-amount bold">90<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="decrease"><path d="M200-440v-80h560v80H200Z"/></svg><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" class="increase"/></svg></div>
+              <div class="content-title book-status bold">Status:</div>
+              <div class="content-value book-status-name bold pending">pending</div>
             </div>
             <div class="content-option">
-              <div class="modify">Modify</div>
-              <div class="remove">Remove</div>
+              <div class="modify bold">Modify</div>
+              <div class="remove bold">Remove</div>
             </div>
+          </div>
+        
           </div>
         </div>
       </main>
