@@ -8,12 +8,22 @@
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
   outline: 1px solid red;
   text-decoration: none;
   font-family: "Comic Sans MS", "Comic Sans";
+}
+
+.scale:hover {
+  scale: 1.1;
+}
+
+.scale:active {
+  scale: 0.9;
+}
+
+.transition {
+  transition: all 0.3s;
 }
 
 .bold {
@@ -31,6 +41,20 @@ body {
   grid-template-columns: 0.55fr 0.45fr;
   font-size: 1.5rem;
   align-items: center;
+}
+
+.header-element a {
+  transition: all 0.3s;
+}
+
+.header-element a:hover {
+  scale: 1.1;
+  color: #8c4ce0;
+}
+
+.header-element a:active {
+  scale: 1;
+  color: #cfc5dd;
 }
 
 .nav {
@@ -57,6 +81,16 @@ body {
   -webkit-text-stroke: 1px black;
   font-weight: 900;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.253);
+  transition: all 0.3s;
+}
+
+.add-book:hover {
+  scale: 1.1;
+}
+
+.add-book:active {
+  scale: 1;
+  background-color: #f5f3eb;
 }
 
 .content-grid {
@@ -74,6 +108,10 @@ body {
   padding: 20px 30px;
   font-size: 1.25rem;
   display: grid;
+}
+
+.content-card:hover {
+  scale: 1.1;
 }
 
 .main-card-content {
@@ -114,6 +152,12 @@ body {
   cursor: pointer;
 }
 
+.finished {
+  color: var(--greenColor);
+  -webkit-text-stroke: 1px black;
+  cursor: pointer;
+}
+
 .book-page-read-amount {
   display: flex;
   align-items: center;
@@ -123,9 +167,33 @@ body {
   fill: var(--redColor);
   margin: 0px 10px 0px 30px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .increase {
   fill: var(--greenColor);
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+dialog {
+  border: none;
+  background-color: var(--accentColor);
+  border-radius: 38px;
+  height: 380px;
+  width: 372px;
+  padding: 30px;
+}
+
+dialog form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+dialog form input {
+  border: none;
+  background-color: var(--backgroundColor);
+  border-radius: 20px;
+  padding-left: 10px;
 }
