@@ -9,7 +9,7 @@
 
 * {
   box-sizing: border-box;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   text-decoration: none;
   font-family: "Comic Sans MS", "Comic Sans";
 }
