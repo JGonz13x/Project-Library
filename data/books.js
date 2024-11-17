@@ -40,7 +40,7 @@ function createBookCardElement() {
               <div class="content-value book-author-name bold">${book.author}</div>
               <div class="content-title book-total-page bold">Total Page:</div>
               <div class="content-value book-total-page-amount bold">${book.totalPages}</div>
-              <div class="content-title book-page-read bold">Page Read:</div>
+              <div class="content-title book-page-read bold">Pages Read:</div>
               <div class="content-value book-page-read-amount bold">
                 ${book.pagesRead}<svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ function createBookCardElement() {
                   viewBox="0 -960 960 960"
                   width="24px"
                   fill="#000000"
-                  class="increase scale"
+                  class="increase scale" data-increase=${book.title}${book.author}
                 >
                   <path
                     d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
@@ -67,7 +67,7 @@ function createBookCardElement() {
               </div>
               <div class="content-title book-status bold">Status:</div>
               <div
-                class="content-value book-status-name bold scale transition ${book.status}"
+                class="content-value book-status-name bold scale transition ${book.status}" data-status=${book.title}${book.author}
               >
                 ${book.status}
               </div>
@@ -92,10 +92,25 @@ function renderBookCard() {
       removeBook(remove);
     });
   });
+
   document.querySelectorAll(".decrease").forEach((decreaseElement) => {
     decreaseElement.addEventListener("click", () => {
       const { decrease } = decreaseElement.dataset;
-      incrementBookRead(decrease);
+      decrementBookRead(decrease);
+    });
+  });
+
+  document.querySelectorAll(".increase").forEach((increaseElement) => {
+    increaseElement.addEventListener("click", () => {
+      const { increase } = increaseElement.dataset;
+      incrementBookRead(increase);
+    });
+  });
+
+  document.querySelectorAll(".content-value").forEach((statusElement) => {
+    statusElement.addEventListener("click", () => {
+      const { status } = statusElement.dataset;
+      forceUpdateBookStatus(status);
     });
   });
 }
@@ -124,18 +139,52 @@ function removeBook(remove) {
   myLibrary.forEach((book, index) => {
     if (book.id === remove) {
       myLibrary.splice(index, 1);
-      createBookCardElement();
-      console.log("hello");
     }
   });
+  createBookCardElement();
+}
+
+function decrementBookRead(decrease) {
+  myLibrary.forEach((book) => {
+    if (book.id === decrease && book.pagesRead > 0) {
+      book.pagesRead--;
+    }
+    updateBookStatus(book);
+  });
+  createBookCardElement();
 }
 
 function incrementBookRead(increase) {
+  myLibrary.forEach((book) => {
+    if (book.id === increase && book.pagesRead < book.totalPages) {
+      book.pagesRead++;
+    }
+    updateBookStatus(book);
+  });
+  createBookCardElement();
+}
+
+function updateBookStatus(book) {
+  if (book.pagesRead == book.totalPages) {
+    console.log("hi");
+    book.status = "finished";
+  }
+
+  if (book.pagesRead < book.totalPages) {
+    console.log("hi");
+    book.status = "pending";
+  }
+}
+
+function forceUpdateBookStatus(status) {
   myLibrary.forEach((book, index) => {
-    if (book.id === increase && book.pagesRead > 0) {
-      book.pagesRead--;
-      createBookCardElement();
-      console.log("hello");
+    if (book.id === status) {
+      if (book.status === "pending") {
+        book.status = "finished";
+      } else if (book.status === "finished") {
+        book.status = "pending";
+      }
     }
   });
+  createBookCardElement();
 }
