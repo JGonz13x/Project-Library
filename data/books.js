@@ -76,9 +76,9 @@ function createBookCardElement() {
               </div>
             </div>
             <div class="content-option">
-              <div class="modify bold scale transition">Modify</div>
+              
               <div class="remove bold scale transition">Remove</div>
-            </div>
+            </>
           </div>`;
   });
 }
