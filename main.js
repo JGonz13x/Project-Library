@@ -21,7 +21,9 @@ addBookDialogElement.addEventListener("click", (e) => {
     e.clientY < dialogDimensions.top ||
     e.clientY > dialogDimensions.bottom
   ) {
-    addBookDialogElement.close();
+    if (checkValue()) {
+      addBook();
+    } else addBookDialogElement.close();
   }
 });
 
