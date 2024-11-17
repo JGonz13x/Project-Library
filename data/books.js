@@ -49,6 +49,7 @@ function createBookCardElement() {
                   width="24px"
                   fill="#000000"
                   class="decrease scale"
+                  data-decrease=${book.title}${book.author}
                 >
                   <path d="M200-440v-80h560v80H200Z" /></svg
                 ><svg
@@ -91,6 +92,12 @@ function renderBookCard() {
       removeBook(remove);
     });
   });
+  document.querySelectorAll(".decrease").forEach((decreaseElement) => {
+    decreaseElement.addEventListener("click", () => {
+      const { decrease } = decreaseElement.dataset;
+      incrementBookRead(decrease);
+    });
+  });
 }
 
 function resetValues() {
@@ -117,6 +124,16 @@ function removeBook(remove) {
   myLibrary.forEach((book, index) => {
     if (book.id === remove) {
       myLibrary.splice(index, 1);
+      createBookCardElement();
+      console.log("hello");
+    }
+  });
+}
+
+function incrementBookRead(increase) {
+  myLibrary.forEach((book, index) => {
+    if (book.id === increase && book.pagesRead > 0) {
+      book.pagesRead--;
       createBookCardElement();
       console.log("hello");
     }
