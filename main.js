@@ -1,4 +1,4 @@
-import { addBookToLibrary, checkValue } from "./data/books";
+import { addBookToLibrary, checkValue } from "../data/books";
 
 const addBookElement = document.querySelector(".add-book");
 const addBookDialogElement = document.querySelector(".add-book-dialog");
