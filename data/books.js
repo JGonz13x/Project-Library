@@ -3,7 +3,8 @@ const myLibrary = [];
 let bookCard = "";
 
 function Book(title, author, totalPages, pagesRead, status) {
-  (this.title = title),
+  (this.id = title + author),
+    (this.title = title),
     (this.author = author),
     (this.totalPages = totalPages),
     (this.pagesRead = pagesRead),
@@ -26,11 +27,6 @@ export function addBookToLibrary() {
 
   myLibrary.push(new Book(title, author, totalPages, pagesRead, status));
   createBookCardElement();
-  console.log(myLibrary);
-  console.log(bookCard);
-
-  renderBookCard();
-  resetValues();
 }
 
 function createBookCardElement() {
@@ -77,14 +73,24 @@ function createBookCardElement() {
             </div>
             <div class="content-option">
               
-              <div class="remove bold scale transition">Remove</div>
-            </>
+              <div class="remove bold scale transition" 
+              data-remove=${book.title}${book.author}>Remove</div>
+            </div>
           </div>`;
   });
+  renderBookCard();
+  resetValues();
 }
 
 function renderBookCard() {
   document.querySelector(".content-grid").innerHTML = bookCard;
+
+  document.querySelectorAll(".remove").forEach((removeElement) => {
+    removeElement.addEventListener("click", () => {
+      const { remove } = removeElement.dataset;
+      removeBook(remove);
+    });
+  });
 }
 
 function resetValues() {
@@ -105,4 +111,14 @@ export function checkValue() {
   } else {
     return false;
   }
+}
+
+function removeBook(remove) {
+  myLibrary.forEach((book, index) => {
+    if (book.id === remove) {
+      myLibrary.splice(index, 1);
+      createBookCardElement();
+      console.log("hello");
+    }
+  });
 }

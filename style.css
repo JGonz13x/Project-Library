@@ -127,13 +127,7 @@ body {
 .content-option {
   display: flex;
   justify-content: center;
-  gap: 50px;
   align-items: center;
-}
-
-.modify {
-  color: var(--greenColor);
-  cursor: pointer;
 }
 
 .remove {
